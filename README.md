@@ -2,21 +2,23 @@
 
 A personal virtualized cybersecurity laboratory built with Kali Linux and Ubuntu Server using Oracle VirtualBox.
 
-The purpose of this lab is to practice Linux administration, computer networking, cybersecurity concepts, security monitoring and penetration testing in an isolated environment.
+CyberLab provides an isolated environment for practicing Linux administration, computer networking, cybersecurity, security monitoring, SIEM operations and authorized penetration testing.
 
-## 🏗️ Lab Architecture
+## Lab Architecture
 
 ```text
-                    CyberLab
-                       │
-              Internal Network
-               192.168.50.0/24
-                       │
-          ┌────────────┴────────────┐
-          │                         │
-     Kali Linux                Ubuntu Server
-     192.168.50.10             192.168.50.20
-          │                         │
-          └────────────┬────────────┘
-                       │
-                Security Lab
+                         CyberLab
+                            |
+                  VirtualBox Internal Network
+                       192.168.50.0/24
+                            |
+             +--------------+--------------+
+             |                             |
+             |                             |
+        Kali Linux                   Ubuntu Server
+      192.168.50.10                192.168.50.20
+      Security Testing              Monitored Server
+             |                             |
+             |                             |
+             +---------- Wazuh ------------+
+                    SIEM / Monitoring
