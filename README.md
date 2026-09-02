@@ -34,10 +34,13 @@ The repository also contains the Wazuh project developed during my software inte
 ```text
 CyberLab/
 ├── README.md
+├── SECURITY.md
+├── .gitignore
 ├── Wazuh-Lab/
 │   ├── README.md
 │   ├── architecture.md
 │   ├── test-scenarios.md
+│   ├── results.md
 │   ├── active-response/
 │   │   └── firewall-drop.md
 │   ├── configuration/
@@ -46,7 +49,7 @@ CyberLab/
 │   └── screenshots/
 │       └── README.md
 │
-└── docs/
+└── documentation/
     ├── kali-linux.md
     ├── ubuntu-server.md
     ├── network-configuration.md
@@ -104,20 +107,21 @@ This repository is intentionally sanitized for public use.
 - Sensitive IP addressing and environment-specific values are omitted where appropriate.
 - Testing is limited to systems for which authorization has been granted.
 
-See [`Wazuh-Lab/architecture.md`](Wazuh-Lab/architecture.md) for the project architecture and [`Wazuh-Lab/active-response/firewall-drop.md`](Wazuh-Lab/active-response/firewall-drop.md) for the response workflow.
+See [`SECURITY.md`](SECURITY.md) for the repository security policy.
 
 ## 📚 Documentation
 
 - [Wazuh Lab](Wazuh-Lab/README.md)
 - [Lab Architecture](Wazuh-Lab/architecture.md)
 - [Test Scenarios](Wazuh-Lab/test-scenarios.md)
+- [Lab Results](Wazuh-Lab/results.md)
 - [Active Response](Wazuh-Lab/active-response/firewall-drop.md)
 - [Manager Configuration Notes](Wazuh-Lab/configuration/manager.md)
 - [Agent Configuration Notes](Wazuh-Lab/configuration/agent.md)
-- [Kali Linux](docs/kali-linux.md)
-- [Ubuntu Server](docs/ubuntu-server.md)
-- [Network Configuration](docs/network-configuration.md)
-- [SIEM & Security Monitoring](docs/siem.md)
+- [Kali Linux](documentation/kali-linux.md)
+- [Ubuntu Server](documentation/ubuntu-server.md)
+- [Network Configuration](documentation/network-configuration.md)
+- [SIEM & Security Monitoring](documentation/siem.md)
 
 ## 🚧 Project Status
 
