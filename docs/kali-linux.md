@@ -2,33 +2,30 @@
 
 ## Overview
 
-Kali Linux is used as the security testing machine in the CyberLab environment.
+Kali Linux is used as the security testing and analysis system in the CyberLab environment.
 
-It is used for network analysis, security testing, vulnerability assessment and penetration testing experiments against authorized lab systems.
-
-## Installation
-
-Kali Linux 2026.1 was installed as a virtual machine using Oracle VirtualBox.
+It is used for authorized network analysis, security testing, vulnerability assessment and controlled lab exercises.
 
 ## Virtual Machine
 
 | Component | Configuration |
 |---|---|
-| Operating System | Kali Linux 2026.1 |
+| Operating System | Kali Linux |
 | Hypervisor | Oracle VirtualBox |
-| Primary Interface | eth0 |
-| Lab Interface | eth1 |
-| Lab IP Address | 192.168.50.10/24 |
-| Role | Security Testing Machine |
+| Network | Private laboratory network |
+| Role | Security testing and analysis system |
 
-## Network Configuration
+## Usage in the Lab
 
-Kali Linux uses two network interfaces.
+Kali Linux is used to generate controlled test traffic and security events against authorized laboratory systems. In the Wazuh project, it also participates as a monitored endpoint through the Wazuh Agent.
 
-- `eth0` → Internet connectivity
-- `eth1` → CyberLab Internal Network
+Examples of lab activities include:
 
-The `eth1` interface is configured with a static IP address:
+- Network and service checks
+- Controlled SSH authentication tests
+- HTTP requests to the laboratory Apache2 service
+- Review of the resulting logs and alerts in Wazuh
 
-```text
-192.168.50.10/24
+## Security Note
+
+Environment-specific IP addresses, credentials, certificates and other sensitive configuration values are intentionally omitted from this public repository.
