@@ -6,15 +6,15 @@ CyberLab is a personal lab environment built with Oracle VirtualBox. It brings t
 
 The repository also contains the Wazuh project developed during my software internship, documented separately under [`Wazuh-Lab/`](Wazuh-Lab/).
 
-## 🎯 Goals
+## 🎯 Project Goals
 
 - Understand network and system security fundamentals
 - Practice Linux and Windows administration in a controlled environment
 - Learn centralized log collection and security monitoring with Wazuh
 - Analyze SSH authentication and Apache2 web-server events
-- Understand the basic SIEM detection workflow
+- Understand the basic SIEM workflow from event collection to alert analysis
 - Experiment with Wazuh Active Response in an authorized lab
-- Keep clear technical documentation for future learning and portfolio use
+- Build clear technical documentation around practical cybersecurity work
 
 ## 🧰 Technologies
 
@@ -29,7 +29,26 @@ The repository also contains the Wazuh project developed during my software inte
 | Web Server | Apache2 |
 | Firewall | UFW |
 
-## 🏗️ Repository Structure
+## 🏗️ Architecture
+
+```text
+ Windows Endpoint ───────┐
+                         │
+ Kali Linux ─────────────┼──> Wazuh Agent ──> Wazuh Manager
+                         │                         │
+ Ubuntu Server ──────────┘                         ▼
+                                           Wazuh Dashboard
+                                                  │
+                                   ┌──────────────┴──────────────┐
+                                   │                             │
+                              Event Analysis              Active Response
+                                   │                             │
+                              SSH / Apache2               firewall-drop
+```
+
+The public repository intentionally omits environment-specific IP addresses, credentials, certificates and other sensitive values.
+
+## 📁 Repository Structure
 
 ```text
 CyberLab/
@@ -45,7 +64,6 @@ CyberLab/
 │   ├── findings.md
 │   ├── results.md
 │   ├── roadmap.md
-│   ├── evidence.md
 │   ├── active-response/
 │   │   └── firewall-drop.md
 │   ├── configuration/
@@ -61,64 +79,112 @@ CyberLab/
     └── siem.md
 ```
 
-## 🔭 Wazuh Project
+## 🔭 Wazuh Internship Project
 
-The internship project focuses on centralized security monitoring with Wazuh. The environment uses Ubuntu Server as the central management system, while Windows, Ubuntu and Kali Linux systems are monitored through Wazuh Agents according to the lab scenario.
+The main project in this repository is a Wazuh-based security monitoring lab developed during my software internship.
 
-The main workflow is:
+The project demonstrates the following workflow:
 
-```text
- Windows ──────────┐
-                   │
- Kali Linux ───────┼──> Wazuh Agent ──> Wazuh Manager
-                   │                         │
- Ubuntu Server ────┘                         ▼
-                                      Wazuh Dashboard
-                                             │
-                              ┌──────────────┴──────────────┐
-                              │                             │
-                         Event Analysis              Active Response
-                              │                             │
-                         SSH / Apache2               firewall-drop
-```
+1. Wazuh Agents are installed on monitored systems.
+2. Security and system events are collected by the agents.
+3. Events are forwarded to the Wazuh Manager.
+4. The Manager analyzes events according to configured rules.
+5. Alerts and event details are reviewed through the Wazuh Dashboard.
+6. Repeated failed SSH authentication attempts are used to test Active Response.
+7. `firewall-drop` is used to block the detected source IP when the configured condition is met.
 
-### Key Scenarios
+### Main Components
 
-**Agent Monitoring**  
-Agent connectivity and system information are reviewed through the Wazuh Dashboard.
+**Wazuh Manager**  
+The central management and analysis component of the lab.
 
-**SSH Authentication Monitoring**  
-Controlled successful and failed SSH authentication attempts are generated and analyzed using local logs and Wazuh alerts.
+**Wazuh Agent**  
+Installed on monitored systems to collect and forward events.
 
-**Apache2 Log Monitoring**  
-HTTP requests are generated against Apache2 and the resulting access/error logs are reviewed locally and through Wazuh.
+**Wazuh Dashboard**  
+Used to review agent status, alerts, logs and security events.
 
-**Active Response**  
-Repeated failed SSH authentication events are used to test the configured Active Response workflow. The lab demonstrates how `firewall-drop` can block the detected source address when the configured condition is met.
+**Ubuntu Server**  
+Used as the server-side system and as a source of SSH and Apache2 events in the lab.
 
-## 📋 Project Documentation
+**Windows**  
+Used as a monitored endpoint with a Wazuh Agent.
 
-Start with the [Wazuh Lab](Wazuh-Lab/README.md), then continue with the [methodology](Wazuh-Lab/methodology.md), [test scenarios](Wazuh-Lab/test-scenarios.md) and [findings](Wazuh-Lab/findings.md).
+**Kali Linux**  
+Used as an authorized test system and monitored endpoint.
 
-Additional technical references are available in the [`documentation/`](documentation/) directory.
+## 🧪 Scenarios Performed
+
+### Agent Monitoring
+
+Agent connections and system information are reviewed through the Wazuh Dashboard.
+
+### SSH Authentication Monitoring
+
+Successful and failed SSH authentication attempts are generated in the authorized lab environment and analyzed through local logs and Wazuh alerts.
+
+### Apache2 Log Monitoring
+
+Apache2 is used as a monitored web service. HTTP activity is reviewed through access/error logs and the Wazuh Dashboard.
+
+### Active Response
+
+Repeated failed SSH authentication events are used to test Wazuh Active Response. The `firewall-drop` response is used to block a detected source IP after the configured detection condition is satisfied.
+
+## 🧠 Skills Demonstrated
+
+- Linux system administration
+- Basic network configuration
+- Virtualized lab design
+- Wazuh Manager / Agent architecture
+- SIEM fundamentals
+- Log collection and event analysis
+- SSH authentication monitoring
+- Apache2 log monitoring
+- Firewall and UFW basics
+- Active Response concepts
+- Technical documentation
+- Security-minded handling of configuration data
+
+## 📚 Documentation
+
+### Wazuh Lab
+
+- [Project Overview](Wazuh-Lab/README.md)
+- [Architecture](Wazuh-Lab/architecture.md)
+- [Methodology](Wazuh-Lab/methodology.md)
+- [Test Scenarios](Wazuh-Lab/test-scenarios.md)
+- [Findings](Wazuh-Lab/findings.md)
+- [Results](Wazuh-Lab/results.md)
+- [Active Response](Wazuh-Lab/active-response/firewall-drop.md)
+- [Manager Configuration Notes](Wazuh-Lab/configuration/manager.md)
+- [Agent Configuration Notes](Wazuh-Lab/configuration/agent.md)
+- [Project Roadmap](Wazuh-Lab/roadmap.md)
+
+### General Lab Documentation
+
+- [Kali Linux](documentation/kali-linux.md)
+- [Ubuntu Server](documentation/ubuntu-server.md)
+- [Network Configuration](documentation/network-configuration.md)
+- [SIEM & Security Monitoring](documentation/siem.md)
 
 ## 🔐 Security & Privacy
 
 This repository is intentionally sanitized for public use.
 
-- No credentials are stored in the repository.
+- No real credentials are stored.
 - Private keys and certificates are excluded.
 - Production configuration is not published.
-- Environment-specific addresses and sensitive values are omitted where appropriate.
-- All security testing is limited to systems for which authorization has been granted.
+- Environment-specific IP addresses and sensitive values are omitted where appropriate.
+- Testing is limited to systems for which authorization has been granted.
 
-See [SECURITY.md](SECURITY.md) for the project security scope.
+See [`SECURITY.md`](SECURITY.md) for the project's security and responsible-use guidelines.
 
 ## 🚧 Project Status
 
 **Status:** Active learning project
 
-The lab is expanded gradually as new monitoring scenarios, configuration notes and documentation are completed.
+The lab will continue to evolve as new monitoring scenarios, documentation and defensive security exercises are completed.
 
 ## 👤 Author
 
