@@ -124,6 +124,7 @@ CyberLab/
 │   ├── test-scenarios.md
 │   ├── findings.md
 │   ├── results.md
+│   ├── skills-and-learning.md
 │   ├── roadmap.md
 │   ├── active-response/
 │   │   └── firewall-drop.md
@@ -148,6 +149,7 @@ CyberLab/
 - [Test Scenarios](Wazuh-Lab/test-scenarios.md)
 - [Findings and Observations](Wazuh-Lab/findings.md)
 - [Results](Wazuh-Lab/results.md)
+- [Skills Demonstrated and Learning Outcomes](Wazuh-Lab/skills-and-learning.md)
 - [Manager Configuration Notes](Wazuh-Lab/configuration/manager.md)
 - [Agent Configuration Notes](Wazuh-Lab/configuration/agent.md)
 - [Active Response](Wazuh-Lab/active-response/firewall-drop.md)
