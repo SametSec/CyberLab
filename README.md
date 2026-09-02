@@ -8,13 +8,13 @@ The repository also contains the Wazuh project developed during my software inte
 
 ## 🎯 Goals
 
-- Understand basic network and system security concepts
+- Understand network and system security fundamentals
 - Practice Linux and Windows administration in a controlled environment
 - Learn centralized log collection and security monitoring with Wazuh
 - Analyze SSH authentication and Apache2 web-server events
-- Understand alert generation and basic SIEM workflows
+- Understand the basic SIEM detection workflow
 - Experiment with Wazuh Active Response in an authorized lab
-- Keep practical notes and reproducible documentation for future learning
+- Keep clear technical documentation for future learning and portfolio use
 
 ## 🧰 Technologies
 
@@ -36,11 +36,16 @@ CyberLab/
 ├── README.md
 ├── SECURITY.md
 ├── .gitignore
+│
 ├── Wazuh-Lab/
 │   ├── README.md
 │   ├── architecture.md
+│   ├── methodology.md
 │   ├── test-scenarios.md
+│   ├── findings.md
 │   ├── results.md
+│   ├── roadmap.md
+│   ├── evidence.md
 │   ├── active-response/
 │   │   └── firewall-drop.md
 │   ├── configuration/
@@ -58,9 +63,9 @@ CyberLab/
 
 ## 🔭 Wazuh Project
 
-The internship project focuses on centralized security monitoring with Wazuh. The environment uses Ubuntu Server as the central management system, while Windows and Kali Linux systems are monitored through Wazuh agents.
+The internship project focuses on centralized security monitoring with Wazuh. The environment uses Ubuntu Server as the central management system, while Windows, Ubuntu and Kali Linux systems are monitored through Wazuh Agents according to the lab scenario.
 
-The lab workflow includes:
+The main workflow is:
 
 ```text
  Windows ──────────┐
@@ -77,62 +82,47 @@ The lab workflow includes:
                          SSH / Apache2               firewall-drop
 ```
 
-More detailed project documentation is available in [`Wazuh-Lab/`](Wazuh-Lab/).
+### Key Scenarios
 
-## 🧪 Main Lab Scenarios
+**Agent Monitoring**  
+Agent connectivity and system information are reviewed through the Wazuh Dashboard.
 
-### Agent Monitoring
+**SSH Authentication Monitoring**  
+Controlled successful and failed SSH authentication attempts are generated and analyzed using local logs and Wazuh alerts.
 
-Wazuh agents are connected to the Manager and their connection status and system information are reviewed through the Dashboard.
+**Apache2 Log Monitoring**  
+HTTP requests are generated against Apache2 and the resulting access/error logs are reviewed locally and through Wazuh.
 
-### SSH Authentication Monitoring
+**Active Response**  
+Repeated failed SSH authentication events are used to test the configured Active Response workflow. The lab demonstrates how `firewall-drop` can block the detected source address when the configured condition is met.
 
-Successful and failed SSH authentication attempts are generated in the authorized lab environment. The resulting security events are investigated through local logs and Wazuh alerts.
+## 📋 Project Documentation
 
-### Apache2 Log Monitoring
+Start with the [Wazuh Lab](Wazuh-Lab/README.md), then continue with the [methodology](Wazuh-Lab/methodology.md), [test scenarios](Wazuh-Lab/test-scenarios.md) and [findings](Wazuh-Lab/findings.md).
 
-Apache2 is used as a monitored web service on Ubuntu Server. HTTP requests are generated from the test system and the resulting access/error logs are examined locally and through Wazuh.
-
-### Active Response
-
-Repeated failed SSH authentication events are used to test Wazuh Active Response. The lab demonstrates how the `firewall-drop` response can block a detected source IP when the configured detection condition is met.
+Additional technical references are available in the [`documentation/`](documentation/) directory.
 
 ## 🔐 Security & Privacy
 
 This repository is intentionally sanitized for public use.
 
-- No real credentials are stored.
+- No credentials are stored in the repository.
 - Private keys and certificates are excluded.
 - Production configuration is not published.
-- Sensitive IP addressing and environment-specific values are omitted where appropriate.
-- Testing is limited to systems for which authorization has been granted.
+- Environment-specific addresses and sensitive values are omitted where appropriate.
+- All security testing is limited to systems for which authorization has been granted.
 
-See [`SECURITY.md`](SECURITY.md) for the repository security policy.
-
-## 📚 Documentation
-
-- [Wazuh Lab](Wazuh-Lab/README.md)
-- [Lab Architecture](Wazuh-Lab/architecture.md)
-- [Test Scenarios](Wazuh-Lab/test-scenarios.md)
-- [Lab Results](Wazuh-Lab/results.md)
-- [Active Response](Wazuh-Lab/active-response/firewall-drop.md)
-- [Manager Configuration Notes](Wazuh-Lab/configuration/manager.md)
-- [Agent Configuration Notes](Wazuh-Lab/configuration/agent.md)
-- [Kali Linux](documentation/kali-linux.md)
-- [Ubuntu Server](documentation/ubuntu-server.md)
-- [Network Configuration](documentation/network-configuration.md)
-- [SIEM & Security Monitoring](documentation/siem.md)
+See [SECURITY.md](SECURITY.md) for the project security scope.
 
 ## 🚧 Project Status
 
 **Status:** Active learning project
 
-The repository is gradually expanded as new lab exercises, monitoring scenarios and documentation are completed.
+The lab is expanded gradually as new monitoring scenarios, configuration notes and documentation are completed.
 
 ## 👤 Author
 
-**Samet Gündüz**
-
+**Samet Gündüz**  
 Computer Programming Student · Cybersecurity Enthusiast
 
 GitHub: [@SametSec](https://github.com/SametSec)
