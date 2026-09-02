@@ -6,7 +6,7 @@ CyberLab is a personal lab environment built with Oracle VirtualBox. It brings t
 
 The repository also contains the Wazuh project developed during my software internship, documented separately under [`Wazuh-Lab/`](Wazuh-Lab/).
 
-## 🎯 Project Goals
+## Project Goals
 
 - Understand network and system security fundamentals
 - Practice Linux and Windows administration in a controlled environment
@@ -16,7 +16,7 @@ The repository also contains the Wazuh project developed during my software inte
 - Experiment with Wazuh Active Response in an authorized lab
 - Build clear technical documentation around practical cybersecurity work
 
-## 🧰 Technologies
+## Technologies
 
 | Area | Technologies |
 |---|---|
@@ -29,7 +29,7 @@ The repository also contains the Wazuh project developed during my software inte
 | Web Server | Apache2 |
 | Firewall | UFW |
 
-## 🏗️ Architecture
+## Architecture
 
 ```text
  Windows Endpoint ───────┐
@@ -48,7 +48,7 @@ The repository also contains the Wazuh project developed during my software inte
 
 The public repository intentionally omits environment-specific IP addresses, credentials, certificates and other sensitive values.
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 CyberLab/
@@ -66,11 +66,9 @@ CyberLab/
 │   ├── roadmap.md
 │   ├── active-response/
 │   │   └── firewall-drop.md
-│   ├── configuration/
-│   │   ├── manager.md
-│   │   └── agent.md
-│   └── screenshots/
-│       └── README.md
+│   └── configuration/
+│       ├── manager.md
+│       └── agent.md
 │
 └── documentation/
     ├── kali-linux.md
@@ -79,7 +77,7 @@ CyberLab/
     └── siem.md
 ```
 
-## 🔭 Wazuh Internship Project
+## Wazuh Internship Project
 
 The main project in this repository is a Wazuh-based security monitoring lab developed during my software internship.
 
@@ -93,45 +91,7 @@ The project demonstrates the following workflow:
 6. Repeated failed SSH authentication attempts are used to test Active Response.
 7. `firewall-drop` is used to block the detected source IP when the configured condition is met.
 
-### Main Components
-
-**Wazuh Manager**  
-The central management and analysis component of the lab.
-
-**Wazuh Agent**  
-Installed on monitored systems to collect and forward events.
-
-**Wazuh Dashboard**  
-Used to review agent status, alerts, logs and security events.
-
-**Ubuntu Server**  
-Used as the server-side system and as a source of SSH and Apache2 events in the lab.
-
-**Windows**  
-Used as a monitored endpoint with a Wazuh Agent.
-
-**Kali Linux**  
-Used as an authorized test system and monitored endpoint.
-
-## 🧪 Scenarios Performed
-
-### Agent Monitoring
-
-Agent connections and system information are reviewed through the Wazuh Dashboard.
-
-### SSH Authentication Monitoring
-
-Successful and failed SSH authentication attempts are generated in the authorized lab environment and analyzed through local logs and Wazuh alerts.
-
-### Apache2 Log Monitoring
-
-Apache2 is used as a monitored web service. HTTP activity is reviewed through access/error logs and the Wazuh Dashboard.
-
-### Active Response
-
-Repeated failed SSH authentication events are used to test Wazuh Active Response. The `firewall-drop` response is used to block a detected source IP after the configured detection condition is satisfied.
-
-## 🧠 Skills Demonstrated
+## Skills Demonstrated
 
 - Linux system administration
 - Basic network configuration
@@ -146,7 +106,7 @@ Repeated failed SSH authentication events are used to test Wazuh Active Response
 - Technical documentation
 - Security-minded handling of configuration data
 
-## 📚 Documentation
+## Documentation
 
 ### Wazuh Lab
 
@@ -168,7 +128,7 @@ Repeated failed SSH authentication events are used to test Wazuh Active Response
 - [Network Configuration](documentation/network-configuration.md)
 - [SIEM & Security Monitoring](documentation/siem.md)
 
-## 🔐 Security & Privacy
+## Security & Privacy
 
 This repository is intentionally sanitized for public use.
 
@@ -180,13 +140,13 @@ This repository is intentionally sanitized for public use.
 
 See [`SECURITY.md`](SECURITY.md) for the project's security and responsible-use guidelines.
 
-## 🚧 Project Status
+## Project Status
 
 **Status:** Active learning project
 
 The lab will continue to evolve as new monitoring scenarios, documentation and defensive security exercises are completed.
 
-## 👤 Author
+## Author
 
 **Samet Gündüz**  
 Computer Programming Student · Cybersecurity Enthusiast
