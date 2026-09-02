@@ -2,28 +2,37 @@
 
 ## Overview
 
-CyberLab uses an isolated VirtualBox Internal Network to allow communication between the Kali Linux security testing machine and the Ubuntu Server.
+CyberLab uses a private VirtualBox laboratory network so that the systems used for cybersecurity exercises can communicate in a controlled environment.
 
-The laboratory network is separated from the host network and is used only for authorized security experiments.
+The network design keeps laboratory traffic separate from production systems and is intended only for authorized testing and learning.
 
-## Network Configuration
-
-| Machine | Operating System | IP Address | Interface |
-|---|---|---|---|
-| Kali | Kali Linux | 192.168.50.10/24 | eth1 |
-| Ubuntu | Ubuntu Server | 192.168.50.20/24 | enp0s8 |
-
-### Network
+## Laboratory Topology
 
 ```text
-Network: 192.168.50.0/24
+                     Private Laboratory Network
+                               |
+              +----------------+----------------+
+              |                                 |
+         Kali Linux                        Ubuntu Server
+      Security Testing                    Server / Wazuh
+              |                                 |
+              +---------------+-----------------+
+                              |
+                           Windows
+                         Wazuh Agent
+```
 
-Kali Linux
-192.168.50.10
-     │
-     │
-     │  VirtualBox Internal Network
-     │
-     │
-Ubuntu Server
-192.168.50.20
+## Network Configuration Principles
+
+- Virtual machines are connected through the laboratory network required by the exercise.
+- IP addresses are checked before connectivity and monitoring tests.
+- Environment-specific addresses and interface names are not published here.
+- Network configuration is adjusted according to the test scenario and the virtualization environment.
+
+## Wazuh Communication
+
+The monitored systems communicate with the Wazuh Manager so that endpoint events can be collected and analyzed centrally. The Wazuh Dashboard is then used to review agent status, alerts and related event data.
+
+## Security Note
+
+Real IP addresses, credentials, certificates and other sensitive configuration values are intentionally omitted from this public repository.
