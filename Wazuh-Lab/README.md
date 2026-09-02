@@ -47,7 +47,7 @@ This project demonstrates a small, controlled security-monitoring environment bu
 | Kali Linux | Authorized test system and monitored endpoint |
 | OpenSSH | Authentication event source used in the SSH scenario |
 | Apache2 | Web-service and access/error-log source |
-| UFW | Firewall state used during the response validation |
+| UFW | Firewall state used for response validation |
 
 ## Monitoring Pipeline
 
@@ -106,7 +106,7 @@ The project provides practical evidence of the following skills:
 
 | Skill | Demonstrated Through |
 |---|---|
-| Linux administration | Ubuntu Server setup, service checks and firewall management |
+| Linux system administration | Ubuntu Server setup, service checks and firewall management |
 | Network configuration | Virtual machine connectivity and private lab networking |
 | Virtualization | Building and operating a multi-system VirtualBox lab |
 | SIEM fundamentals | Centralized event collection, detection, alert review and response |
@@ -128,6 +128,8 @@ The project provides practical evidence of the following skills:
 - Why testing should be validated from more than one point of view, such as local logs, Wazuh events and firewall state.
 - Why production credentials, certificates, internal addresses and other sensitive configuration values should not be included in public documentation.
 
+A more detailed skills and learning summary is available in [Skills Demonstrated and Learning Outcomes](skills-and-learning.md).
+
 ## Documentation
 
 - [Lab Architecture](architecture.md)
@@ -135,6 +137,7 @@ The project provides practical evidence of the following skills:
 - [Test Scenarios](test-scenarios.md)
 - [Findings and Observations](findings.md)
 - [Results](results.md)
+- [Skills Demonstrated and Learning Outcomes](skills-and-learning.md)
 - [Manager Configuration](configuration/manager.md)
 - [Agent Configuration](configuration/agent.md)
 - [Active Response / firewall-drop](active-response/firewall-drop.md)
